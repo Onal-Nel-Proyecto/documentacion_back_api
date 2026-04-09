@@ -1,0 +1,48 @@
+# 🔐 Variables de entorno
+
+.env
+.env.*
+
+# 📦 Dependencias
+
+node_modules/
+
+# 🪵 Logs
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🧪 Archivos temporales
+
+.tmp
+.temp
+.cache
+
+# 🖥️ Sistema operativo
+
+.DS_Store
+Thumbs.db
+
+# 🧠 IDE / editores
+
+.vscode/
+.idea/
+
+# 🗂️ Archivos locales sensibles
+
+*.pem
+*.key
+*.crt
+*.p12
+
+# 📁 Archivos de credenciales (Google, APIs, etc.)
+
+documentacion-onal-nel-bc5ec57e9723.json
+
+# 📦 Build (por si agregas frontend después)
+
+dist/
+build/
