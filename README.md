@@ -25,8 +25,8 @@ El nombre del archivo en Drive se utiliza como título en la respuesta.
 # 🔗 Endpoints
 
 ```
-[GET] /api/diagram/:type
-[GET] /api/diagram/:type/:module
+[GET] /api/:type
+[GET] /api/:type/:module
 ```
 
 ---
@@ -57,8 +57,10 @@ GET /api/diagram/er
   {
     "id": "1abc123",
     "titulo": "usuarios diagrama clases",
+    "modulo": "Usuario",
     "url": "https://drive.google.com/uc?id=1abc123",
-    "vista": "https://drive.google.com/file/d/1abc123/view"
+    "descripcion": "",
+    "carpeta": "DIAGRAMA DE CLASES"
   }
 ]
 ```
@@ -67,12 +69,14 @@ GET /api/diagram/er
 
 ## 🧾 Campos
 
-| Campo    | Descripción                        |
-| -------- | ---------------------------------- |
-| `id`     | ID del archivo en Google Drive     |
-| `titulo` | Nombre del archivo                 |
-| `url`    | URL directa para mostrar la imagen |
-| `vista`  | URL de vista en Google Drive       |
+| Campo         | Descripción                        |
+| --------      | ---------------------------------- |
+| `id`          | ID del archivo en Google Drive     |
+| `titulo`      | Nombre del archivo                 |
+| `modulo`      | Modulo que pertence la imagen      |
+| `url`         | URL directa para mostrar la imagen |
+| `descripcion` | Texto de explicacion de la imagen  |
+| `carpeta`     | Carpeta donde pertenece el archivo |
 
 ---
 

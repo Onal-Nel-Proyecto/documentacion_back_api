@@ -1,5 +1,5 @@
 import { google } from 'googleapis';
-console.log(process.env.GOOGLE_PRIVATE_KEY)
+// console.log(process.env.GOOGLE_PRIVATE_KEY)
 
 const privateKey = process.env.GOOGLE_PRIVATE_KEY
 

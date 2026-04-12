@@ -1,17 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import drive from './config.js';
+import driveRoutes from './routes/drive.routes.js';
 const app = express(); 
 app.use(cors());
 app.use(express.json());
-app.get('/', async (req, res) => {
-  const data = await drive.files.list({
-    pageSize: 10,
-    fields: "files(id, name, mimeType, webViewLink, webContentLink, thumbnailLink, modifiedTime)"
-  })
+app.use('/api', driveRoutes);
 
-  res.json(data.data.files);
+app.get('/', (req, res) => {
+  res.redirect('/api');
 });
+
+
 
 const PORT = process.env.PORT || 3000;
 
