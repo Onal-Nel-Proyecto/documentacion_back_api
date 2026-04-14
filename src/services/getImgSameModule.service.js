@@ -1,5 +1,5 @@
-import DriveFile from "../models/drive.models.js";
-import drive from "../config.js";
+import DriveFile from "../models/imagen.models.js";
+import drive from "../config/config.js";
 
 const getFileFromSameModule = async (folderId, moduleName) => {
   try {
@@ -13,7 +13,7 @@ const getFileFromSameModule = async (folderId, moduleName) => {
       return [];
     }
     const driveFiles = files.map(file => new DriveFile(file.id, file.name, file.description, file.parents));
-    return driveFiles.filter(file => file.modulo === moduleName);
+    return driveFiles.filter(file => file.modulo.toLowerCase() === moduleName.toLowerCase());
   }
   catch (error) {
     console.error('Error al obtener las imágenes de la carpeta:', error);

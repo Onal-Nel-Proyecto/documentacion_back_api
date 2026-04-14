@@ -1,5 +1,5 @@
-import DriveFile from "../models/drive.models.js";
-import drive from "../config.js";
+import DriveFile from "../models/imagen.models.js";
+import drive from "../config/config.js";
 
 
 const getImagenFromFolder = async (folderId) => {

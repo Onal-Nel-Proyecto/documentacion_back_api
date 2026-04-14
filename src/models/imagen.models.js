@@ -5,7 +5,8 @@ class DriveFile {
     const safeName = name || "";
 
     const parts = safeName.split("-");
-    const modulo = parts[0] || "";
+    this.module = parts[0] || "";
+
     const rawName = parts[1] || "";
 
     const cleanName = rawName.includes(".")
@@ -13,10 +14,10 @@ class DriveFile {
       : rawName;
 
     this.name = cleanName;
-    this.modulo = modulo;
 
     this.url = "https://drive.google.com/uc?export=view&id=" + id;
     this.description = description;
+
     this.parents = parents;
   }
 
@@ -25,9 +26,7 @@ class DriveFile {
       id: this.id,
       title: this.name,
       url: this.url,
-      modulo: this.modulo,
       description: this.description,
-      carpeta: this.parents
     }
   }
 }
