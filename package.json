@@ -18,6 +18,8 @@
     "express": "^5.2.1",
     "googleapis": "^171.4.0",
     "jest": "^30.3.0",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }
