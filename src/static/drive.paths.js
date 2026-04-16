@@ -45,6 +45,9 @@
  *         required: true
  *         schema:
  *           type: string
+*     responses:
+ *       200:
+ *         description: obtener imágenes organizadas por folder
  */
 
 /**
@@ -64,6 +67,9 @@
  *         required: true
  *         schema:
  *           type: string
+  *     responses:
+ *       200:
+ *         description: objeto con imágenes organizadas por módulo
  */
 
 /**
@@ -88,4 +94,7 @@
  *         required: true
  *         schema:
  *           type: string
+  *     responses:
+ *       200:
+ *         description: otención de una imagen específica
  */
