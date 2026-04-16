@@ -7,7 +7,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api', router);
-app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(
+  "/api/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, {
+    explorer: true,
+  })
+);
+
+app.get('/test', (req, res) => {
+  res.send("OK");
+});
 
 app.get('/', (req, res) => {
   res.redirect('/api/imagenes');
