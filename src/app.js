@@ -10,7 +10,13 @@ import swaggerSpec from "./config/swagger.js";
 const app = express();
 
 // ── Seguridad ─────────────────────────────────────────────────
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: {
+      policy: "cross-origin",
+    },
+  })
+);
 
 // ── Compresión (gzip) ─────────────────────────────────────────
 app.use(compression());
