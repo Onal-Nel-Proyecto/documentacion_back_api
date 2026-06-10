@@ -25,8 +25,11 @@ El nombre del archivo en Drive se utiliza como título en la respuesta.
 # 🔗 Endpoints
 
 ```
-[GET] /api/:type
-[GET] /api/:type/:module
+[GET] /api/imagenes
+[GET] /api/imagenes/:type
+[GET] /api/imagenes/:type/:module
+[GET] /api/imagenes/:type/:module/:file
+[GET] /api/imagenes/file/:id   ← Proxy: sirve la imagen desde Google Drive
 ```
 
 ---
@@ -98,9 +101,19 @@ Crear un archivo `.env`:
 
 ```
 PORT=8000
+API_BASE_URL=http://localhost:8000
 GOOGLE_CLIENT_EMAIL=tu_email
 GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
 ```
+
+| Variable          | Descripción                                        | Obligatorio |
+|-------------------|----------------------------------------------------|-------------|
+| `PORT`            | Puerto del servidor                                | Sí          |
+| `API_BASE_URL`    | URL base para construir las URLs de las imágenes   | No*         |
+| `GOOGLE_CLIENT_EMAIL` | Email de la cuenta de servicio                 | Sí          |
+| `GOOGLE_PRIVATE_KEY`  | Clave privada de la cuenta de servicio         | Sí          |
+
+> *`API_BASE_URL` se obtiene automáticamente de `VERCEL_URL` o `RENDER_EXTERNAL_URL` si no está definida. En local, por defecto es `http://localhost:{PORT}`.
 
 ---
 

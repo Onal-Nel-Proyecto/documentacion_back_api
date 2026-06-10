@@ -10,10 +10,17 @@ class Folder {
   }
 
   json() {
+    // Módulo "Principal" siempre primero en la respuesta
+    const sorted = [...this.content].sort((a, b) => {
+      if (a.module.toUpperCase() === 'PRINCIPAL') return -1;
+      if (b.module.toUpperCase() === 'PRINCIPAL') return 1;
+      return 0;
+    });
+
     return {
       id: this.id,
       type: this.type,
-      content: this.content.map(module => module.json())
+      content: sorted.map(module => module.json())
     }
   }
 }

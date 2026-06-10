@@ -33,7 +33,6 @@ const getFileFromFolder = async (req, res) => {
 // Función para obtener todos las imagenes de un módulo específico
 const getFileFromModule = async (req, res) => {
   try {
-    console.log(req.params)
     const { type, module } = req.params;
     const parentModule = await getParentModule(type.toUpperCase());
     if (parentModule.length === 0) {
@@ -46,7 +45,6 @@ const getFileFromModule = async (req, res) => {
     const modulo = folder?.content.find(mod => mod.module.toUpperCase() === module.toUpperCase());
 
     const imagenFiltrada = modulo ? modulo.images : [];
-    console.log(imagenFiltrada);
 
     res.status(200).json(imagenFiltrada);
   } catch (error) {
@@ -70,7 +68,6 @@ const getAllFilesFromDrive = async (req, res) => {
 // Función para obtener un archivo específico por su ID
 const getFileById = async (req, res) => {
   try {
-    console.log(req.params)
     const { type, module, file } = req.params;
     const parentModule = await getParentModule(type.toUpperCase());
     if (parentModule.length === 0) {

@@ -98,3 +98,48 @@
  *       200:
  *         description: otención de una imagen específica
  */
+
+/**
+ * @swagger
+ * /imagenes/file/{id}:
+ *   get:
+ *     summary: Proxy de imagen — sirve la imagen desde Google Drive a través del backend
+ *     tags: [Drive]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID del archivo en Google Drive
+ *     responses:
+ *       200:
+ *         description: Imagen servida como stream (JPEG, PNG, GIF, WebP, SVG)
+ *         content:
+ *           image/*:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       404:
+ *         description: Imagen no encontrada
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *       500:
+ *         description: Error al obtener la imagen desde Google Drive
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ */

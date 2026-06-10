@@ -1,3 +1,5 @@
+import getBaseUrl from "../utils/baseUrl.js";
+
 class DriveFile {
   constructor(id, name, description, parents) {
     this.id = id;
@@ -15,10 +17,20 @@ class DriveFile {
 
     this.name = cleanName;
 
-    this.url = "https://drive.google.com/uc?export=view&id=" + id;
+    // URL generada dinámicamente según el entorno
+    this.url = this.#buildProxyUrl(id);
     this.description = description;
 
     this.parents = parents;
+  }
+
+  /**
+   * Construye la URL del proxy de imágenes.
+   * Usa la base URL del servidor en lugar de Google Drive directamente.
+   */
+  #buildProxyUrl(fileId) {
+    const baseUrl = getBaseUrl();
+    return `${baseUrl}/api/imagenes/file/${fileId}`;
   }
 
   json() {

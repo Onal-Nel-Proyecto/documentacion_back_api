@@ -5,8 +5,12 @@ import {
   getFileFromFolder, 
   getFileFromModule 
 } from "../controllers/getFileFromModule.controller.js";
+import { getImageProxy } from "../controllers/imageProxy.controller.js";
 
 const router = Router();
+
+// Proxy de imágenes — debe ir ANTES de rutas con parámetros dinámicos
+router.get('/imagenes/file/:id', getImageProxy);
 
 router.get('/imagenes/:type/:module/:file', getFileById); // retorna un archivo específico de la carpeta padre
 
