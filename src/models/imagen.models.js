@@ -9,13 +9,23 @@ class DriveFile {
     const parts = safeName.split("-");
     this.module = parts[0] || "";
 
-    const rawName = parts[1] || "";
+    // Todo lo que sigue después del módulo: "01", "01-diagrama.png", "logo.png", etc.
+    const rawName = parts.slice(1).join("-");
 
-    const cleanName = rawName.includes(".")
+    // Quitar extensión antes de analizar
+    const nameWithoutExt = rawName.includes(".")
       ? rawName.split(".")[0]
       : rawName;
 
-    this.name = cleanName;
+    // Intentar extraer un prefijo numérico para el orden
+    const match = nameWithoutExt.match(/^(\d+)-?(.*)/);
+    if (match) {
+      this.orden = parseInt(match[1], 10);
+      this.name = match[2] ? match[2].replace(/^-/, '') : match[1];
+    } else {
+      this.orden = null;
+      this.name = nameWithoutExt;
+    }
 
     // URL generada dinámicamente según el entorno
     this.url = this.#buildProxyUrl(id);
@@ -39,6 +49,7 @@ class DriveFile {
       title: this.name,
       url: this.url,
       description: this.description,
+      orden: this.orden,
     }
   }
 }

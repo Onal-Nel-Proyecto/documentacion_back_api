@@ -20,6 +20,10 @@
  *           type: string
  *         description:
  *           type: string
+ *         orden:
+ *           type: integer
+ *           nullable: true
+ *           description: "Orden de visualización extraído del nombre del archivo (prefijo numérico tras el módulo)"
  */
 
 /**
