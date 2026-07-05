@@ -7,6 +7,8 @@ const getImagenFromFolder = async (folderId) => {
     const response = await drive.files.list({
       q: `'${folderId}' in parents and mimeType contains 'image/' and trashed = false`,
       fields: 'files(id, name, description, parents)',
+      supportsAllDrives: true,
+      includeItemsFromAllDrives: true,
     });
     const files = response.data.files;
     if (files.length === 0) {

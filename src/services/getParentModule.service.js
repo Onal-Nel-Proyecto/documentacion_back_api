@@ -9,7 +9,9 @@ const getParentModule = async (nameFolder) => {
       q: `mimeType = 'application/vnd.google-apps.folder' 
           and trashed = false
           and name = '${safeName}'`,
-      fields: "files(id, name)"
+      fields: "files(id, name)",
+      supportsAllDrives: true,
+      includeItemsFromAllDrives: true,
     });
 
     return response.data.files || [];
